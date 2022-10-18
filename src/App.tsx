@@ -13,12 +13,16 @@ export default function App() {
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [attempt, setAttempt] = useState(1);
   const [isWin, setIsWin] = useState(false);
+  const [isLoser, setIsLoser] = useState(false);
 
   const handleCheckAnswer = (answer: string) => {
     setAttempt(attempt + 1);
 
     if (answer.toUpperCase() === correctAnswer) {
       setIsWin(true);
+    } else if (answer.toUpperCase() !== correctAnswer && attempt === 6) {
+      setIsLoser(true);
+      console.log("teste");
     }
   };
 
@@ -52,14 +56,22 @@ export default function App() {
         </div>
       </header>
 
-      {!isWin ? (
+      {isLoser ? (
+        <h1>
+          Você <span style={{ color: "#cb3737" }}>perdeu</span>, a palavra era:{" "}
+          {correctAnswer}
+        </h1>
+      ) : isWin ? (
+        <h1>
+          Você <span style={{ color: "#72ca33" }}>ganhou</span>, a palavra era:{" "}
+          {correctAnswer}
+        </h1>
+      ) : (
         <Game
           attempt={attempt}
           handleCheckAnswer={handleCheckAnswer}
           correctAnswer={correctAnswer}
         />
-      ) : (
-        <h1>Você acertou, a palavra era: {correctAnswer}</h1>
       )}
 
       <div className="keyboard"></div>
