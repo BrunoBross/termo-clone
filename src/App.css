@@ -63,6 +63,7 @@
   text-transform: uppercase;
   caret-color: transparent;
   outline: none;
+  cursor: pointer;
 }
 
 .letterInput:focus {
