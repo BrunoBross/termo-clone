@@ -1,5 +1,4 @@
 import LetterInput from "./LetterInput";
-import { WordInputForm } from "./WordForm";
 
 interface WordInputType {
   register: Function;

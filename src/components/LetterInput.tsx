@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { WordInputForm } from "./WordForm";
 
 interface LetterInputType {
   letter: string;
@@ -76,7 +75,7 @@ export default function LetterInput(props: LetterInputType) {
         backgroundColor: "#3AA394",
         border: "0.125em solid #3AA394",
       });
-    } else if (correctAnswer.includes(input)) {
+    } else if (correctAnswer.includes(input.toUpperCase())) {
       setStyle({
         backgroundColor: "#D3AD69",
         border: "0.125em solid #D3AD69",
@@ -87,7 +86,7 @@ export default function LetterInput(props: LetterInputType) {
         border: "0.125em solid #312A2C",
       });
     }
-  }, [handleInput]);
+  }, [isAnswered, input]);
 
   return (
     <>

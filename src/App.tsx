@@ -1,24 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Game from "./components/Game";
-import InfoModal from "./components/InfoModal";
+
+interface ApiResponse {
+  word: string;
+  count: number;
+  id: number;
+  character: string;
+}
 
 export default function App() {
-  const correctAnswer = "BANANA";
+  const [correctAnswer, setCorrectAnswer] = useState("");
   const [attempt, setAttempt] = useState(1);
   const [isWin, setIsWin] = useState(false);
 
   const handleCheckAnswer = (answer: string) => {
-    console.log("Tentativa de numero: " + attempt);
     setAttempt(attempt + 1);
 
-    if (answer === correctAnswer) {
-      console.log("Você acertou, a resposta era: " + answer);
+    if (answer.toUpperCase() === correctAnswer) {
       setIsWin(true);
-    } else {
-      console.log("Sua resposta: " + answer);
     }
   };
+
+  useEffect(() => {
+    const availableAnswers = [
+      "BATATA",
+      "BARATA",
+      "EMBORA",
+      "HOSTIL",
+      "ESCOPO",
+      "EXCETO",
+      "GENTIL",
+      "UTOPIA",
+      "ALHEIO",
+    ];
+
+    setCorrectAnswer(availableAnswers[Math.floor(Math.random() * 9)]);
+  }, []);
 
   return (
     <div className="container">
@@ -34,15 +52,17 @@ export default function App() {
         </div>
       </header>
 
-      <Game
-        attempt={attempt}
-        handleCheckAnswer={handleCheckAnswer}
-        correctAnswer={correctAnswer}
-      />
+      {!isWin ? (
+        <Game
+          attempt={attempt}
+          handleCheckAnswer={handleCheckAnswer}
+          correctAnswer={correctAnswer}
+        />
+      ) : (
+        <h1>Você acertou, a palavra era: {correctAnswer}</h1>
+      )}
 
       <div className="keyboard"></div>
-
-      <InfoModal />
     </div>
   );
 }

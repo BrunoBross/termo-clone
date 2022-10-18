@@ -32,7 +32,7 @@ export default function WordForm(props: WordForm) {
       data.letterFive +
       data.letterSix;
 
-    handleCheckAnswer(answer);
+    answer.length === 6 && handleCheckAnswer(answer);
   };
 
   useEffect(() => {
