@@ -71,7 +71,7 @@
 
 .wordBlockedForm {
   display: flex;
-  gap: 6px;
+  gap: 7px;
 }
 
 .letterBlockedInput {
@@ -79,7 +79,7 @@
   text-align: center;
   background-color: #615458;
   border: 0.125em solid #615458 !important;
-  border-radius: 8px;
+  border-radius: 10%;
   font-size: 55px;
   color: #fff;
   width: 80px;
@@ -88,4 +88,14 @@
   text-transform: uppercase;
   caret-color: transparent;
   outline: none;
+}
+
+.infos {
+  text-align: center;
+  font-size: 2vh;
+  margin-bottom: 20px;
+}
+
+.infos > p > a {
+  color: #ffffffde;
 }

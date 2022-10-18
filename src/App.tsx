@@ -74,7 +74,12 @@ export default function App() {
         />
       )}
 
-      <div className="keyboard"></div>
+      <div className="infos">
+        <p>
+          Este é um clone do site <a href="https://term.ooo/">termo.ooo</a>.
+        </p>
+        <p>Ainda não está completo.</p>
+      </div>
     </div>
   );
 }
