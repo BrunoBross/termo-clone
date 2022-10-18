@@ -1,0 +1,89 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Mitr", sans-serif;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.header {
+  margin-top: 20px;
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.title {
+  font-size: 4vh;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b7aeb4;
+  border: 2px solid #b7aeb4;
+  border-radius: 20%;
+  height: 3vh;
+  width: 3vh;
+  cursor: pointer;
+}
+
+.buttons-left,
+.buttons-right {
+  display: flex;
+  gap: 7px;
+}
+
+.wordForm {
+  display: flex;
+  gap: 7px;
+}
+
+.letterInput {
+  display: flex;
+  text-align: center;
+  border-radius: 10%;
+  font-size: 55px;
+  color: #fff;
+  width: 80px;
+  height: 80px;
+  font-family: "Mitr", sans-serif;
+  text-transform: uppercase;
+  caret-color: transparent;
+  outline: none;
+}
+
+.letterInput:focus {
+  border-bottom: 0.25em solid #4c4347 !important;
+}
+
+.wordBlockedForm {
+  display: flex;
+  gap: 6px;
+}
+
+.letterBlockedInput {
+  display: flex;
+  text-align: center;
+  background-color: #615458;
+  border: 0.125em solid #615458 !important;
+  border-radius: 8px;
+  font-size: 55px;
+  color: #fff;
+  width: 80px;
+  height: 80px;
+  font-family: "Fredoka One", cursive;
+  text-transform: uppercase;
+  caret-color: transparent;
+  outline: none;
+}
