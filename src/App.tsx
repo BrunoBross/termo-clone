@@ -24,7 +24,6 @@ export default function App() {
   const handleCheckAnswer = (answer: string) => {
     const upperAnswer = answer.toUpperCase();
     addWrongLetters(upperAnswer);
-
     if (upperAnswer === correctAnswer) {
       setIsWin(true);
       return;
@@ -82,6 +81,7 @@ export default function App() {
         handleCheckAnswer={handleCheckAnswer}
         correctAnswer={correctAnswer}
         wrongLetters={wrongLetters}
+        isWin={isWin}
       />
 
       <div className="infos">

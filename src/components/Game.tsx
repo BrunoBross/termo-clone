@@ -6,17 +6,19 @@ interface GameInterface {
   handleCheckAnswer: Function;
   correctAnswer: string;
   wrongLetters: string[];
+  isWin: boolean;
 }
 
 export default function Game(props: GameInterface) {
-  const { attempt, handleCheckAnswer, correctAnswer, wrongLetters } = props;
+  const { attempt, handleCheckAnswer, correctAnswer, wrongLetters, isWin } =
+    props;
 
   return (
     <div className="game">
       {attempt >= 1 ? (
         <WordForm
           handleCheckAnswer={handleCheckAnswer}
-          isAnswered={attempt > 1}
+          isAnswered={attempt > 1 || isWin}
           correctAnswer={correctAnswer}
           wrongLetters={wrongLetters}
         />
@@ -26,7 +28,7 @@ export default function Game(props: GameInterface) {
       {attempt >= 2 ? (
         <WordForm
           handleCheckAnswer={handleCheckAnswer}
-          isAnswered={attempt > 2}
+          isAnswered={attempt > 2 || isWin}
           correctAnswer={correctAnswer}
           wrongLetters={wrongLetters}
         />
@@ -36,7 +38,7 @@ export default function Game(props: GameInterface) {
       {attempt >= 3 ? (
         <WordForm
           handleCheckAnswer={handleCheckAnswer}
-          isAnswered={attempt > 3}
+          isAnswered={attempt > 3 || isWin}
           correctAnswer={correctAnswer}
           wrongLetters={wrongLetters}
         />
@@ -46,7 +48,7 @@ export default function Game(props: GameInterface) {
       {attempt >= 4 ? (
         <WordForm
           handleCheckAnswer={handleCheckAnswer}
-          isAnswered={attempt > 4}
+          isAnswered={attempt > 4 || isWin}
           correctAnswer={correctAnswer}
           wrongLetters={wrongLetters}
         />
@@ -56,7 +58,7 @@ export default function Game(props: GameInterface) {
       {attempt >= 5 ? (
         <WordForm
           handleCheckAnswer={handleCheckAnswer}
-          isAnswered={attempt > 5}
+          isAnswered={attempt > 5 || isWin}
           correctAnswer={correctAnswer}
           wrongLetters={wrongLetters}
         />
@@ -66,7 +68,7 @@ export default function Game(props: GameInterface) {
       {attempt >= 6 ? (
         <WordForm
           handleCheckAnswer={handleCheckAnswer}
-          isAnswered={attempt > 6}
+          isAnswered={attempt > 6 || isWin}
           correctAnswer={correctAnswer}
           wrongLetters={wrongLetters}
         />
