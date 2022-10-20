@@ -9,6 +9,7 @@ interface LetterInputType {
   getValues: Function;
   isAnswered: boolean;
   correctAnswer: string;
+  wrongLetters: string[];
 }
 
 export default function LetterInput(props: LetterInputType) {
@@ -21,26 +22,38 @@ export default function LetterInput(props: LetterInputType) {
     getValues,
     isAnswered,
     correctAnswer,
+    wrongLetters,
   } = props;
 
   const [input, setInput] = useState("");
   const [style, setStyle] = useState({});
 
   const handleSetFocus = (event: React.KeyboardEvent) => {
-    if (!event.key.match("[A-Za-z]")) {
-      event.preventDefault();
-      return;
-    }
-
+    // VALIDAR AS LETRAS ERRADAS
     if (
-      event.key === "Tab" ||
-      event.key === "ArrowLeft" ||
-      event.key === "ArrowRight"
+      !event.key.match("[A-Za-z]") ||
+      wrongLetters.includes(event.key.toUpperCase())
     ) {
       event.preventDefault();
       return;
     }
 
+    // NAO DEIXAR APERTAR TAB
+    if (event.key === "Tab") {
+      event.preventDefault();
+      return;
+    }
+
+    // MOVIMENTAR ENTRE OS CAMPOS COM AS SETAS DO TECLADO
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      setFocus(previousLetter);
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      setFocus(nextLetter);
+    }
+
+    // VOLTAR UMA LETRA CASO NAO TENHA NENHUMA LETRA NO INPUT
     if (event.key === "Backspace" && !getValues(letter)) {
       setFocus(previousLetter);
     }

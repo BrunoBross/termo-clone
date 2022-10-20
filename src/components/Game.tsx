@@ -5,10 +5,11 @@ interface GameInterface {
   attempt: number;
   handleCheckAnswer: Function;
   correctAnswer: string;
+  wrongLetters: string[];
 }
 
 export default function Game(props: GameInterface) {
-  const { attempt, handleCheckAnswer, correctAnswer } = props;
+  const { attempt, handleCheckAnswer, correctAnswer, wrongLetters } = props;
 
   return (
     <div className="game">
@@ -17,6 +18,7 @@ export default function Game(props: GameInterface) {
           handleCheckAnswer={handleCheckAnswer}
           isAnswered={attempt > 1}
           correctAnswer={correctAnswer}
+          wrongLetters={wrongLetters}
         />
       ) : (
         <WordBlockedInput />
@@ -26,6 +28,7 @@ export default function Game(props: GameInterface) {
           handleCheckAnswer={handleCheckAnswer}
           isAnswered={attempt > 2}
           correctAnswer={correctAnswer}
+          wrongLetters={wrongLetters}
         />
       ) : (
         <WordBlockedInput />
@@ -35,6 +38,7 @@ export default function Game(props: GameInterface) {
           handleCheckAnswer={handleCheckAnswer}
           isAnswered={attempt > 3}
           correctAnswer={correctAnswer}
+          wrongLetters={wrongLetters}
         />
       ) : (
         <WordBlockedInput />
@@ -44,6 +48,7 @@ export default function Game(props: GameInterface) {
           handleCheckAnswer={handleCheckAnswer}
           isAnswered={attempt > 4}
           correctAnswer={correctAnswer}
+          wrongLetters={wrongLetters}
         />
       ) : (
         <WordBlockedInput />
@@ -53,6 +58,7 @@ export default function Game(props: GameInterface) {
           handleCheckAnswer={handleCheckAnswer}
           isAnswered={attempt > 5}
           correctAnswer={correctAnswer}
+          wrongLetters={wrongLetters}
         />
       ) : (
         <WordBlockedInput />
@@ -62,6 +68,7 @@ export default function Game(props: GameInterface) {
           handleCheckAnswer={handleCheckAnswer}
           isAnswered={attempt > 6}
           correctAnswer={correctAnswer}
+          wrongLetters={wrongLetters}
         />
       ) : (
         <WordBlockedInput />

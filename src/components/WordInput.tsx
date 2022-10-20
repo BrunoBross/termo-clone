@@ -6,10 +6,18 @@ interface WordInputType {
   getValues: Function;
   isAnswered: boolean;
   correctAnswer: string;
+  wrongLetters: string[];
 }
 
 export default function WordInput(props: WordInputType) {
-  const { register, setFocus, getValues, isAnswered, correctAnswer } = props;
+  const {
+    register,
+    setFocus,
+    getValues,
+    isAnswered,
+    correctAnswer,
+    wrongLetters,
+  } = props;
 
   return (
     <>
@@ -21,6 +29,7 @@ export default function WordInput(props: WordInputType) {
         getValues={getValues}
         isAnswered={isAnswered}
         correctAnswer={correctAnswer}
+        wrongLetters={wrongLetters}
       />
       <LetterInput
         letter="letterTwo"
@@ -31,6 +40,7 @@ export default function WordInput(props: WordInputType) {
         getValues={getValues}
         isAnswered={isAnswered}
         correctAnswer={correctAnswer}
+        wrongLetters={wrongLetters}
       />
       <LetterInput
         letter="letterThree"
@@ -41,6 +51,7 @@ export default function WordInput(props: WordInputType) {
         getValues={getValues}
         isAnswered={isAnswered}
         correctAnswer={correctAnswer}
+        wrongLetters={wrongLetters}
       />
       <LetterInput
         letter="letterFour"
@@ -51,6 +62,7 @@ export default function WordInput(props: WordInputType) {
         getValues={getValues}
         isAnswered={isAnswered}
         correctAnswer={correctAnswer}
+        wrongLetters={wrongLetters}
       />
       <LetterInput
         letter="letterFive"
@@ -61,6 +73,7 @@ export default function WordInput(props: WordInputType) {
         getValues={getValues}
         isAnswered={isAnswered}
         correctAnswer={correctAnswer}
+        wrongLetters={wrongLetters}
       />
       <LetterInput
         letter="letterSix"
@@ -70,6 +83,7 @@ export default function WordInput(props: WordInputType) {
         getValues={getValues}
         isAnswered={isAnswered}
         correctAnswer={correctAnswer}
+        wrongLetters={wrongLetters}
       />
     </>
   );

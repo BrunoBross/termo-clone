@@ -6,6 +6,7 @@ interface WordForm {
   handleCheckAnswer: Function;
   isAnswered: boolean;
   correctAnswer: string;
+  wrongLetters: string[];
 }
 
 export interface WordInputForm {
@@ -18,7 +19,7 @@ export interface WordInputForm {
 }
 
 export default function WordForm(props: WordForm) {
-  const { handleCheckAnswer, isAnswered, correctAnswer } = props;
+  const { handleCheckAnswer, isAnswered, correctAnswer, wrongLetters } = props;
 
   const { register, handleSubmit, setFocus, getValues } =
     useForm<WordInputForm>();
@@ -47,6 +48,7 @@ export default function WordForm(props: WordForm) {
         getValues={getValues}
         isAnswered={isAnswered}
         correctAnswer={correctAnswer}
+        wrongLetters={wrongLetters}
       />
 
       <button
