@@ -21,7 +21,7 @@ export interface WordInputForm {
 export default function WordForm(props: WordForm) {
   const { handleCheckAnswer, isAnswered, correctAnswer, wrongLetters } = props;
 
-  const { register, handleSubmit, setFocus, getValues } =
+  const { register, handleSubmit, setFocus, getValues, reset } =
     useForm<WordInputForm>();
 
   const onSubmitForm = (data: WordInputForm) => {

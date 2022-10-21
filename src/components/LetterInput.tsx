@@ -26,7 +26,7 @@ export default function LetterInput(props: LetterInputType) {
   } = props;
 
   const [input, setInput] = useState("");
-  const [style, setStyle] = useState({});
+  const [className, setClassName] = useState("letterInput ");
 
   const handleSetFocus = (event: React.KeyboardEvent) => {
     // VALIDAR AS LETRAS ERRADAS
@@ -81,48 +81,31 @@ export default function LetterInput(props: LetterInputType) {
   };
 
   useEffect(() => {
-    if (
+    if (!isAnswered) {
+      return;
+    } else if (
       correctAnswer.charAt(getNumberIndexByType(letter)) === input.toUpperCase()
     ) {
-      setStyle({
-        backgroundColor: "#3AA394",
-        border: "0.125em solid #3AA394",
-      });
+      setClassName(className.concat("correct "));
     } else if (correctAnswer.includes(input.toUpperCase())) {
-      setStyle({
-        backgroundColor: "#D3AD69",
-        border: "0.125em solid #D3AD69",
-      });
+      setClassName(className.concat("contain "));
     } else {
-      setStyle({
-        backgroundColor: "#312A2C",
-        border: "0.125em solid #312A2C",
-      });
+      setClassName(className.concat("incorrect "));
     }
   }, [isAnswered, input]);
 
   return (
-    <>
-      <input
-        type="text"
-        {...register(letter)}
-        minLength={1}
-        maxLength={1}
-        disabled={isAnswered}
-        className="letterInput"
-        onKeyDown={handleSetFocus}
-        onInput={handleInput}
-        id={letter}
-        style={
-          isAnswered
-            ? style
-            : {
-                backgroundColor: "transparent",
-                border: "0.125em solid #4C4347",
-              }
-        }
-        autoComplete="off"
-      />
-    </>
+    <input
+      type="text"
+      {...register(letter)}
+      minLength={1}
+      maxLength={1}
+      disabled={isAnswered}
+      className={className}
+      onKeyDown={handleSetFocus}
+      onInput={handleInput}
+      id={letter}
+      autoComplete="off"
+    />
   );
 }

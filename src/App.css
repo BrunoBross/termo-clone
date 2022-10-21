@@ -29,6 +29,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
   font-weight: 400;
   font-size: 2.5vh;
   padding: 0.4em 1.4em;
@@ -36,9 +37,20 @@
   color: #fff;
   font-family: "Mitr", sans-serif;
   background-color: #0099fd;
-  width: 22rem;
+  width: 28rem;
   margin-top: 1rem;
   border: 0;
+}
+
+.reset {
+  padding: 0 0.5rem 0 0.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  color: #fff;
 }
 
 .header {
@@ -85,6 +97,8 @@
   width: 80px;
   height: 80px;
   font-family: "Mitr", sans-serif;
+  background-color: transparent;
+  border: 0.125em solid #4c4347;
   font-weight: 600;
   text-transform: uppercase;
   caret-color: transparent;
@@ -136,4 +150,40 @@
 
 #button:hover {
   opacity: 0.8;
+}
+
+.correct {
+  background-color: #3aa394;
+  border: 0.125em solid #3aa394;
+}
+
+.contain {
+  background-color: #d3ad69;
+  border: 0.125em solid #d3ad69;
+}
+
+.incorrect {
+  background-color: #312a2c;
+  border: 0.125em solid #312a2c;
+}
+
+.input-anim {
+  animation: input-animation 1s normal;
+}
+
+@keyframes input-animation {
+  0% {
+    width: 90px;
+    height: 90px;
+  }
+
+  10% {
+    width: 90px;
+    height: 90px;
+  }
+
+  30% {
+    width: 80px;
+    height: 80px;
+  }
 }

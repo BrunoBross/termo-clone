@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Game from "./components/Game";
+import ReplayIcon from "@mui/icons-material/Replay";
 
 export default function App() {
   const availableAnswers = [
@@ -13,6 +14,7 @@ export default function App() {
     "GENTIL",
     "UTOPIA",
     "ALHEIO",
+    "BRENDA",
   ];
 
   const [correctAnswer, setCorrectAnswer] = useState("");
@@ -31,6 +33,10 @@ export default function App() {
       setIsLoser(true);
     }
     setAttempt(attempt + 1);
+  };
+
+  const resetGame = () => {
+    location.reload();
   };
 
   const addWrongLetters = (answer: string) => {
@@ -73,6 +79,9 @@ export default function App() {
           }
         >
           <p id="end-info">palavra certa: {correctAnswer}</p>
+          <button onClick={resetGame} className="reset">
+            <ReplayIcon fontSize="large" />
+          </button>
         </div>
       </div>
 
